@@ -762,3 +762,97 @@ footer {
     height: 50px;
     width: 50px;
 }
+
+/* --- Privacy Policy Content Styling --- */
+.privacy-policy-content {
+    max-width: 900px; /* Constrain width for readability */
+    margin: 40px auto; /* Center content with vertical spacing */
+    padding: 30px;
+    background-color: #000000; /* Use your site's main dark background */
+    color: #f0f0f0; /* Off-white text for readability */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    line-height: 1.7; /* Improve readability of body text */
+    font-size: 1.05em; /* Slightly larger body text */
+    font-family: 'Nunito', sans-serif; /* Consistent font */
+}
+
+.privacy-policy-content .policy-title {
+    font-family: "Oxanium", sans-serif; /* Heading font for main title */
+    font-size: 3em; /* Larger for main title */
+    color: #007bff; /* Accent color for main title */
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.privacy-policy-content .policy-last-updated {
+    text-align: center;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+.privacy-policy-content h2,
+.privacy-policy-content h3 {
+    font-family: "Oxanium", sans-serif; /* Consistent heading font */
+    color: #007bff; /* Accent color for subheadings */
+    margin-top: 30px; /* Space above headings */
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.privacy-policy-content h2 { font-size: 2em; } /* Size for major sections */
+.privacy-policy-content h3 { font-size: 1.5em; } /* Size for sub-sections */
+
+.privacy-policy-content p {
+    margin-bottom: 1em; /* Space between paragraphs */
+}
+
+.privacy-policy-content ul,
+.privacy-policy-content ol {
+    list-style-position: inside; /* Puts bullets/numbers inside padding */
+    margin-left: 20px; /* Indent lists */
+    margin-bottom: 1em;
+    padding-left: 0; /* Reset default padding */
+}
+
+.privacy-policy-content ul li,
+.privacy-policy-content ol li {
+    margin-bottom: 0.5em; /* Space between list items */
+}
+
+.privacy-policy-content a {
+    color: #007bff; /* Consistent link color */
+    text-decoration: underline; /* Underline links for clarity */
+    transition: color 0.3s ease;
+}
+
+.privacy-policy-content a:hover {
+    color: #fff; /* White on hover for links */
+}
+
+.privacy-policy-content address {
+    font-style: normal; /* Keep address text normal, not italic */
+    margin-bottom: 1em;
+}
+
+/* Responsive adjustments for privacy policy content */
+@media (max-width: 768px) {
+    .privacy-policy-content {
+        padding: 20px; /* Reduce padding on smaller screens */
+        margin: 20px auto; /* Adjust margins */
+    }
+
+    .privacy-policy-content h1 {
+        font-size: 2em; /* Adjust main title size */
+    }
+
+    .privacy-policy-content h2 {
+        font-size: 1.5em; /* Adjust section title size */
+    }
+
+    .privacy-policy-content h3 {
+        font-size: 1.2em; /* Adjust sub-section title size */
+    }
+}
