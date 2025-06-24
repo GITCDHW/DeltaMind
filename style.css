@@ -1,0 +1,764 @@
+/* General Body and Reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+    /* Set a min-height for the body to ensure it takes at least the full viewport height */
+    min-height: 100vh;
+    background-color: black; /* Your overall background */
+    color: white; /* Default text color for the entire page */
+    font-family: 'Nunito', sans-serif; /* Apply a consistent font family for general text */
+    line-height: 1.6;
+}
+
+/* Header Section (Responsive Adjustments) */
+.header {
+  width: 100vw;
+  background: black;
+  color: white;
+  text-align: center;
+  padding-top: 20px; /* Add some padding at the top */
+  padding-bottom: 40px; /* Add more padding at the bottom for spacing before the next section */
+  overflow: hidden; /* Prevent horizontal overflow from banner or large text */
+  display: flex; /* Use flexbox for vertical alignment of content */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally within the flex container */
+  justify-content: flex-start; /* Align content to the start (top) of the header */
+}
+
+.banner img {
+  width: 100%; /* Make image take full width of its container */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 250px; /* Limit height on larger screens to prevent it from being too dominant */
+  object-fit: cover; /* Ensures the image covers the area without distortion */
+  display: block; /* Remove extra space below image */
+  margin-bottom: 20px; /* Space between banner and h1 */
+}
+
+/* Main H1 for the page (using Oxanium as specified) */
+h1 {
+  font-family: "Oxanium", sans-serif;
+}
+
+.header h1 {
+  font-size: 10vw; /* Responsive font size based on viewport width */
+  max-font-size: 80px; /* Limit maximum font size on very large screens */
+  line-height: 1.1; /* Adjust line height for better readability of large text */
+  margin-bottom: 10px;
+  padding: 0 10px; /* Add slight horizontal padding for small screens */
+}
+
+.header p {
+  font-size: 3.5vw; /* Responsive font size */
+  max-font-size: 20px; /* Limit maximum font size */
+  margin-bottom: 30px; /* Space between tagline and button */
+  padding: 0 15px; /* Add horizontal padding to prevent text from touching screen edges */
+}
+
+/* Header Button */
+.header button {
+  padding: 15px 30px; /* Adjust padding for better look */
+  width: 70%; /* Start with a larger width for better touch targets on mobile */
+  max-width: 250px; /* Max width for button on larger screens */
+  background: #000;
+  box-shadow: 0 0 15px #fff;
+  border: none;
+  border-radius: 50px;
+  transition: 0.3s ease-in-out; /* Smoother transition */
+  font-size: 1.2em; /* Keep font readable */
+  margin-bottom: 40px; /* Space between button and about section */
+}
+
+.header button:hover {
+  box-shadow: none;
+  background: white;
+  transition: 0.3s ease-in-out;
+}
+
+.header button a {
+  text-decoration: none;
+  color: white;
+  display: block; /* Make the entire link clickable within the button */
+  width: 100%;
+  height: 100%;
+}
+
+.header button:hover a { /* Apply color change to the link text itself on hover */
+    color: black;
+}
+
+/* About Section within Header */
+.about {
+  margin: 20px auto; /* Centered with auto margins horizontally */
+  padding: 20px;
+  box-shadow: 0 0 5px #EFEFEF;
+  border-radius: 10px;
+  width: 90%; /* Occupy most of the width on smaller screens */
+  max-width: 800px; /* Limit width on larger screens for readability */
+  text-align: left; /* Align text within the about box */
+}
+
+.about h1 {
+  font-size: 6vw; /* Responsive font for about title */
+  max-font-size: 40px; /* Limit size */
+  margin-bottom: 15px; /* Space below title */
+}
+
+.about p {
+  font-size: 3.5vw; /* Responsive font for about paragraph */
+  max-font-size: 16px; /* Limit size */
+  line-height: 1.8; /* Improve readability */
+}
+
+/* Courses Section */
+.courses {
+  padding: 10px;
+  width: 100vw;
+  background: black;
+  padding-bottom: 40px; /* Add padding at the bottom of the courses section */
+}
+
+/* Container for the Course Card */
+.courses-cont {
+    display: grid;
+    grid-template-columns: minmax(280px, 400px); /* Centers a single card and provides responsive behavior */
+    justify-content: center; /* Center horizontally */
+    gap: 50px; /* Spacing (if you add more cards later) */
+    max-width: 1200px; /* Overall max width */
+    margin: 0 auto; /* Center the container */
+    padding: 20px 0;
+}
+
+/* Base style for a Course Card */
+.course-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin: 10px;
+    min-height: 380px; /* Ensures consistent card height */
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Style for disabled links (for upcoming courses) */
+.course-card.disabled-link {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.course-card.disabled-link:hover {
+    transform: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Thumbnail Container */
+.course-thumbnail-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    background-color: #eee;
+}
+
+.course-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Course Status Badge */
+.course-status {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* Specific status colors */
+.status-ongoing {
+    background-color: #007bff;
+}
+.status-completed {
+    background-color: #28a745;
+}
+.status-upcoming {
+    background-color: #ffc107;
+    color: #333;
+}
+
+/* Course Info Section */
+.course-info {
+    padding: 15px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-title {
+    font-size: 1.4em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.3;
+}
+
+.course-description {
+    font-size: 0.95em;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.course-update-info {
+    font-size: 0.8em;
+    color: #999;
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+/* View Course Button */
+.view-course-button {
+    background-color: #c4302b;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.view-course-button:hover {
+    background-color: #a32a26;
+}
+
+/* Style for disabled button */
+.view-course-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+/* Featured Videos Section */
+.featured-videos {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: "Oxanium", sans-serif;
+    font-size: 2.5em; /* Default large size for mobile first */
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.video-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.video-card {
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.video-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.video-embed-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #000;
+}
+
+.video-embed-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin: 15px 15px 10px 15px;
+    color: #fff;
+    text-align: left;
+}
+
+.video-description { /* This class is not used in your HTML, but keeping for completeness */
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 0 15px 15px 15px;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.watch-button {
+    display: inline-block;
+    background-color: #c4302b;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 15px;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+}
+
+.watch-button:hover {
+    background-color: #a32a26;
+}
+
+/* Latest From DeltaChronicles Section */
+.latest-chronicles {
+    background-color: #1a1a1a; /* A slightly different dark background */
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Reusing section-title for consistency */
+.latest-chronicles .section-title {
+    font-family: "Oxanium", sans-serif;
+    font-size: 8vw; /* Responsive font size */
+    max-font-size: 40px; /* Limit size */
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+/* Blog Posts Container (similar to video-cards-container) */
+.blog-posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center; /* Center cards if fewer than full row */
+    margin-bottom: 40px; /* Space before "View All Blogs" button */
+}
+
+/* Blog Card (similar to course-card and video-card) */
+.blog-card {
+    background-color: #000; /* Darker background for the card */
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit text color */
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    margin-top: 10px;
+}
+
+.blog-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Blog Thumbnail Container (similar to video-embed-wrapper) */
+.blog-thumbnail-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    overflow: hidden;
+    background-color: #333; /* Placeholder background */
+}
+
+.blog-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Blog Info Section (similar to course-info) */
+.blog-info {
+    padding: 15px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* Align text within the info section to the left */
+}
+
+.blog-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #fff;
+    line-height: 1.3;
+}
+
+.blog-meta {
+    font-size: 0.85em;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.blog-date, .blog-author {
+    font-weight: bold;
+}
+
+.blog-description {
+    font-size: 0.9em;
+    color: #bbb;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-grow: 1; /* Allows description to take up available space */
+}
+
+/* Read More Button (similar to view-course-button/watch-button) */
+.read-more-button {
+    background-color: #007bff; /* Blue, distinct from YouTube red */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    width: 100%; /* Full width button */
+    box-sizing: border-box;
+    transition: background-color 0.2s ease-in-out;
+    margin-top: auto; /* Pushes the button to the bottom of the card */
+}
+
+.read-more-button:hover {
+    background-color: #0056b3;
+}
+
+/* View All Blogs Button (at the bottom of the section) */
+.view-all-button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.view-all-button {
+    display: inline-block;
+    background-color: #c4302b; /* YouTube Red, or match header button */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: background-color 0.2s ease;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Subtle glow */
+}
+
+.view-all-button:hover {
+    background-color: #a32a26;
+    box-shadow: none;
+}
+
+/* Media Query Adjustments for this section */
+@media (min-width: 769px) {
+    .latest-chronicles .section-title {
+        font-size: 36px; /* Fixed size for desktop */
+    }
+}
+
+
+/* Media Queries for overall responsiveness */
+
+/* For smaller screens (phones up to ~480px) - base styles already cover this */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 10vw; /* Keep 10vw for smaller screens */
+    }
+    .header p {
+        font-size: 3.5vw;
+    }
+    .about h1 {
+        font-size: 6vw;
+    }
+    .about p {
+        font-size: 3.5vw;
+    }
+    .section-title {
+        font-size: 8vw; /* General section titles */
+    }
+}
+
+/* For Tablets and larger phones (e.g., width > 480px) */
+@media (min-width: 481px) and (max-width: 768px) {
+    .header h1 {
+        font-size: 8vw;
+    }
+    .header p {
+        font-size: 2.5vw;
+    }
+    .about h1 {
+        font-size: 5vw;
+    }
+    .about p {
+        font-size: 2.5vw;
+    }
+    .section-title {
+        font-size: 6vw; /* General section titles */
+    }
+    .course-card {
+        max-width: 400px; /* Limit card width on medium screens */
+        margin: 0 auto; /* Center single cards */
+    }
+    .video-card {
+         max-width: 400px; /* Apply same for video cards */
+        margin: 0 auto;
+    }
+}
+@media (min-width: 769px) {
+    .banner img {
+        max-height: 400px; /* Allow banner to be taller on large screens */
+        width: 90%; /* Don't force full width on very wide screens */
+    }
+
+    .header h1 {
+        font-size: 70px; /* Set a fixed font size for desktop */
+    }
+
+    .header p {
+        font-size: 18px; /* Fixed font size for desktop */
+        width: 70%; /* Constrain width of paragraph for readability */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .header button {
+        width: 200px; /* Fixed width for desktop button */
+        padding: 20px 40px;
+    }
+
+    .about h1 {
+        font-size: 36px;
+    }
+
+    .about p {
+        font-size: 18px;
+    }
+
+    .section-title {
+        font-size: 36px; /* Fixed size for desktop section titles */
+    }
+    .courses-cont {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Allow multiple cards if you add them later */
+        gap: 30px;
+    }
+}
+
+/* --- Footer Section --- */
+footer {
+    background-color: #0d0d0d; /* Slightly lighter black than your main background */
+    color: #f0f0f0; /* Off-white for text */
+    padding: 40px 20px 20px; /* Top, horizontal, bottom padding */
+    font-family: 'Nunito', sans-serif; /* Using Nunito for general footer text */
+    border-top: 1px solid #333; /* Subtle line at the top */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap; /* Allows columns to wrap on smaller screens */
+    justify-content: space-around; /* Distributes space between columns */
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px; /* Space between columns */
+    margin-bottom: 30px;
+}
+
+.footer-column {
+    flex: 1; /* Allows columns to grow and shrink */
+    min-width: 200px; /* Minimum width before wrapping */
+    padding: 10px;
+    text-align: left; /* Default text alignment */
+}
+
+.footer-column h2,
+.footer-column h3 {
+    font-family: "Oxanium", sans-serif; /* Consistent heading font for h2/h3 in footer */
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.footer-brand .footer-tagline {
+    font-size: 0.9em;
+    color: #aaa;
+    margin-top: -10px; /* Pull tagline closer to brand name */
+    margin-bottom: 20px;
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #007bff; /* Highlight color on hover */
+}
+
+.copyright {
+    font-size: 0.8em;
+    color: #888;
+    margin-top: 20px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px; /* Space between icons */
+    margin-top: 10px;
+}
+
+.social-icons a {
+    display: inline-block;
+    color: #fff; /* Default icon color if using Font Awesome */
+    font-size: 1.8em; /* Size for Font Awesome icons */
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons img.social-icon { /* Style for image-based icons */
+    width: 30px; /* Adjust size as needed */
+    height: 30px;
+    border-radius: 50%; /* Make them round if desired */
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff; /* Example hover color for generic icons */
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+/* Specific colors for common social icons if using Font Awesome and desire branded colors */
+.social-icons a .fa-youtube:hover { color: #c4302b; }
+.social-icons a .fa-twitter:hover { color: #1DA1F2; }
+.social-icons a .fa-instagram:hover { color: #E4405F; }
+.social-icons a .fa-facebook:hover { color: #1877F2; }
+
+
+/* Footer Bottom Bar */
+.footer-bottom-bar {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #222; /* Separator line */
+    margin-top: 20px;
+    font-size: 0.85em;
+    color: #aaa;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom-bar p {
+    margin: 5px 0; /* Add margin for spacing when wrapped */
+}
+
+.back-to-top {
+    color: #007bff; /* Blue color for back to top */
+    text-decoration: none;
+    transition: color 0.3s ease;
+    margin: 5px 0; /* Add margin for spacing when wrapped */
+}
+
+.back-to-top:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* --- Responsive Adjustments for Footer --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Stack columns vertically on smaller screens */
+        align-items: center; /* Center items */
+        text-align: center; /* Center text within columns */
+    }
+
+    .footer-column {
+        width: 100%; /* Full width for stacked columns */
+        max-width: 300px; /* Constrain max width for readability */
+        padding: 20px 0; /* More vertical padding */
+    }
+
+    .social-icons {
+        justify-content: center; /* Center social icons when stacked */
+    }
+
+    .footer-bottom-bar {
+        flex-direction: column; /* Stack bottom bar elements */
+    }
+}
+
+
+/* Loader GIF (Keep as is) */
+#loader_gif {
+    height: 50px;
+    width: 50px;
+}

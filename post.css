@@ -1,0 +1,168 @@
+.main-content {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin: 20px;
+    background-color: #f4f4f4;
+}
+
+.blog-post {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.post-title {
+    color: #2c3e50;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.post-meta {
+    text-align: center;
+    color: #7f8c8d;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.post-date, .post-author {
+    font-weight: bold;
+}
+
+.post-content {
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.post-content p {
+    margin-bottom: 1em;
+}
+
+.post-content h3 {
+    color: #34495e;
+    font-size: 1.5em;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+.post-content ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+.post-content li {
+    margin-bottom: 5px;
+}
+
+.profile-card-overlay-container {
+    position: fixed; /* Or 'absolute' if it's relative to a specific parent */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for overlay effect */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's above other content */
+}
+.profile-card {
+    width: 350px; /* Adjust width as needed */
+    max-width: 90%; /* Ensure responsiveness */
+    background-color: #000; /* Black background for the card body */
+    border-radius: 15px;
+    overflow: hidden; /* Ensures rounded corners for internal elements */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font */
+    color: #fff; /* Default text color */
+    box-shadow: 0 0 10px #fff;
+}
+
+.profile-card-header {
+    background-color: #1a4cd8; /* Dark blue background for the header */
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    position: relative; /* For positioning the edit button */
+    padding-right: 60px; /* Make space for the edit button */
+    min-height: 120px; /* Ensure sufficient height */
+}
+
+.profile-icon-wrapper {
+    flex-shrink: 0;
+    width: 80px; /* Size of the circle */
+    height: 80px;
+    border-radius: 50%;
+    background-color: #fff; /* White border effect */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.profile-icon {
+    width: 70px; /* Inner circle size */
+    height: 70px;
+    border-radius: 50%;
+    background-color: #666; /* Grey background for the delta symbol */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-text {
+    font-size: 48px; /* Size of the delta symbol */
+    font-weight: bold;
+    color: #fff; /* Color of the delta symbol */
+    line-height: 1;
+    display: block; /* Ensures proper centering */
+}
+
+.profile-info {
+    flex-grow: 1;
+}
+
+.profile-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.profile-tagline {
+    font-size: 14px;
+    color: #eee;
+    opacity: 0.8;
+}
+
+.close-button {
+    position: absolute;
+    top: 5px;
+    left: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-card-footer {
+    padding: 20px;
+    padding-top: 50px; /* Space from the header bottom */
+}
+
+.profile-id {
+    font-size: 14px;
+    color: #ccc;
+    opacity: 0.7;
+}
