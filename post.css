@@ -47,6 +47,7 @@
 
 .post-content p {
     margin-bottom: 1em;
+    white-space:pre-wrap;
 }
 
 .post-content h3 {
