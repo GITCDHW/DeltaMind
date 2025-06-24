@@ -47,7 +47,7 @@ postRef.once("value").then(async snapshot => {
 
     // Use default values if properties are missing
     const postTitle = postDetails.Title || "Untitled Post";
-    const postContent = postDetails.content || "No content available for this post.";
+    const postContent = postDetails.Content || "No content available for this post.";
     
     let postDate = "Unknown Date";
     if (postDetails.Timestamp) {
