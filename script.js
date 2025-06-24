@@ -27,7 +27,7 @@ var uiConfig = {
     }
   }],
   tosUrl: '/terms.html',
-  privacyPolicyUrl: '/privacy.html'
+  privacyPolicyUrl: '/privacy-policy.html'
 };
 
 ui.start('#sign_in_ui', uiConfig);
